@@ -35,7 +35,10 @@ on_duplicate_update_keys|on duplicate key update column, comma separator
   password hogehoge
   column_names id,user_name,created_at,updated_at
   table users
-  flush_interval 10s
+  <buffer tag>
+    @type memory
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
@@ -78,7 +81,10 @@ INSERT INTO users (id,user_name,created_at,updated_at) VALUES (NULL,'toyama','20
   table users
   on_duplicate_key_update true
   on_duplicate_update_keys user_name,updated_at
-  flush_interval 60s
+  <buffer tag>
+    @type memory
+    flush_interval 60s
+  </buffer>
 </match>
 ```
 
@@ -119,7 +125,10 @@ if duplicate id , update username and updated_at
   column_names id,user_name,created_at,updated_at
   key_names id,user,created_date,updated_date
   table users
-  flush_interval 10s
+  <buffer tag>
+    @type memory
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
@@ -155,7 +164,10 @@ then result becomes as below (indented):
   column_names id,user_name,created_at
   key_names id,user,${time}
   table users
-  flush_interval 10s
+  <buffer tag>
+    @type memory
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
@@ -204,7 +216,10 @@ http://docs.fluentd.org/articles/formatter-plugin-overview
   column_names id,user_name,created_at
   key_names id,user,created_at
   table users
-  flush_interval 10s
+  <buffer tag>
+    @type memory
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
